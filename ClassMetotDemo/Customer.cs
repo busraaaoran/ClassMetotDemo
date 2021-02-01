@@ -14,5 +14,8 @@ namespace ClassMetotDemo
 
         public int PhoneNumber { get; set; }
 
+        public string Gender { get; set; }
+
+
     }
 }
