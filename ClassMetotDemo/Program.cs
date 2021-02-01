@@ -41,15 +41,38 @@ namespace ClassMetotDemo
             customer5.PhoneNumber = 05555555555;
             customer5.Gender = "female";
 
-            Customer[] customers = new Customer[] {customer1,customer2,customer3,customer4,customer5 };
+            Customer customer6 = new Customer();
 
             CustomerManager cManager = new CustomerManager();
+
+            cManager.AddCustomer(customer6);
+
+            Customer[] customers = new Customer[] {customer1,customer2,customer3,customer4,customer5,customer6 };
+
 
             foreach (var item in customers)
             {
                 cManager.Display(item);
             }
-            
+
+            Console.WriteLine("Enter a customer name to be deleted: ");
+            string delete = Console.ReadLine();
+
+            int i,Flag=0;
+            for (i = 0; i < customers.Length; i++)
+            {
+                if (customers[i].Name == delete)
+                {
+                    cManager.DeleteCustomer(customers[i]);
+                    Flag = 1;
+                    break;
+                }
+                
+            }
+            if (Flag == 0)
+            {
+                Console.WriteLine("You entered an invalid customer name!");
+            }
         }
     }
 }
